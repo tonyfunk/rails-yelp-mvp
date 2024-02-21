@@ -1,0 +1,24 @@
+<figure class="text-center my-5">
+  <blockquote class="blockquote">
+    <p><%= @restaurant.name %></p>
+  </blockquote>
+  <figcaption class="blockquote-footer">
+    <p><%= @restaurant.address %></p>
+    <p><%= @restaurant.phone_number %></p>
+    <p><%= @restaurant.category %></p>
+    </figcaption>
+   <blockquote class="blockquote">
+    <p>Reviews</p>
+    <ul>
+      <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+    <li class="list-group-item"><%= review.rating.to_s %></li>
+  <% end %>
+</ul>
+</blockquote>
+</figure>
+<div class = "d-grid gap-2 col-6 mx-auto">
+<%= link_to "add a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary text-center" %>
+<%= link_to "Edit restaurant", edit_restaurant_path, class: "btn btn-primary text-center"%>
+<%= link_to "Back to list", restaurants_path, class: "btn btn-primary " %>
+</div>
